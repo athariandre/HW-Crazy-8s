@@ -20,6 +20,10 @@ Card::Card(string rank, string suit) /* TODO: initialize */ {
         throw std::invalid_argument("suit is not alphanumeric!");
       }
     }
+
+    this->rank = rank;
+    this->suit = suit;
+    this->timesPlayed = 0;
   }
 
 
