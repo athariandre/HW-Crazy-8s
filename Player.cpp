@@ -17,17 +17,21 @@ size_t Player::getHandSize() {
   return(hand.size());
 }
 
-std::string Player::getHandString() {
+std::string Player::getHandString() { //THIS IS THE ISSUE
   string handString = "";
-  for(int i = 0; i < hand.size()-1; i++){
-    handString += (hand[i]->getRank() + " " + hand[i]->getSuit() + ", ");
+  for(int i = 0; i < hand.size(); i++){
+    if(i < hand.size()-1){
+      handString += (hand[i]->getRank() + " " + hand[i]->getSuit() + ", ");
+    }
+    else{
+      handString += (hand[i]->getRank() + " " + hand[i]->getSuit());
+    }
   }
   handString += (hand[hand.size()-1]->getRank() + " " + hand[hand.size()-1]->getSuit());
   return(handString);
 }
 
 Card* Player::playCard(vector<string> const& suits, string& currentRank, string& currentSuit) {
-  return (new Card("8", "Spades"));
   // if(isAI){
   //   for(int i = 0; i < hand.size(); i++){
   //     if(hand[i]->canBePlayed(currentRank, currentSuit)){

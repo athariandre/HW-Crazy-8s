@@ -52,32 +52,20 @@ void setupGame(Game& g) {
 }
 
 int main() {
-  // Game g;
-  // if (!loadDeck(g)) {
-  //   return 1;
-  // }
-  // int numPlayers = getPlayerCount();
-  // setupPlayers(g, numPlayers);
-  // setupGame(g);
-  // int winner = g.runGame();
-  // if (winner != -1) {
-  //   std::cout << "Player " << winner << " wins!" << std::endl;
-  // } else {
-  //   std::cout << "The game is a draw!" << std::endl;
-  // }
-  // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
-
-
-  std::vector<Card*> list;
-    string suit;
-    suit = "Hearts";
-    Player p = new Player(false);
-    for(int i = 1; i > 11; i++){
-        Card *c = new Card(std::to_string(i), suit);
-        p.addToHand(c);
-    }
-    cout << p.getHandSize() << " " << p.getHandString() << " " << endl;
-
+  Game g;
+  if (!loadDeck(g)) {
+    return 1;
+  }
+  int numPlayers = getPlayerCount();
+  setupPlayers(g, numPlayers);
+  setupGame(g);
+  int winner = g.runGame();
+  if (winner != -1) {
+    std::cout << "Player " << winner << " wins!" << std::endl;
+  } else {
+    std::cout << "The game is a draw!" << std::endl;
+  }
+  std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
 
   return 0;
 }
