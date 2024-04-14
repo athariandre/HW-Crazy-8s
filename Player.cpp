@@ -39,48 +39,47 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     }
     return nullptr;
   }
-  return nullptr;
-  // else{
-  //   cout << "Your hand contains: " << getHandString() << endl;
-  //   cout << "The next card played must be a " << currentRank << " or " << currentSuit << endl;
-  //   cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
+  else{
+    cout << "Your hand contains: " << getHandString() << endl;
+    cout << "The next card played must be a " << currentRank << " or " << currentSuit << endl;
+    cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
 
-  //   string newRank, newSuit;
-  //   while(true){
-  //     cin >> newRank >> newSuit;
-  //     if(newRank + newSuit == "drawcard"){
-  //      return nullptr;
-  //     }
+    string newRank, newSuit;
+    while(false){
+      cin >> newRank >> newSuit;
+      if(newRank + newSuit == "drawcard"){
+       return nullptr;
+      }
 
-  //     int i = 0;
-  //     for(Card *c: hand){
-  //       if(c->getRank() == newRank && c->getSuit() == newSuit){
-  //         if(c->canBePlayed(currentRank, currentSuit)){  
-  //           if(c->getRank() == "8"){
-  //             cout << "What suit would you like to declare?" << endl;
-  //             while(true){
-  //               cin >> newSuit;
-  //               for(string suit: suits){
-  //                 if(suit == newSuit){
-  //                   break;
-  //                 }
-  //               }
-  //               cout << "That's not a suit in this deck. Try again." << endl;
-  //             }
-  //           }
-  //           c->play();
-  //           currentRank = newRank;
-  //           currentSuit = newSuit;
-  //           hand.erase(hand.begin() + i);
-  //           return c;
-  //         }
-  //         cout << "You can't play that card. Try again." << endl;
-  //         continue;
-  //       }
-  //       i++;
-  //     }
-  //     cout << "That's not a card you have. Try again." << endl;
-  //   }
-  // }
+      int i = 0;
+      for(Card *c: hand){
+        if(c->getRank() == newRank && c->getSuit() == newSuit){
+          if(c->canBePlayed(currentRank, currentSuit)){  
+            if(c->getRank() == "8"){
+              cout << "What suit would you like to declare?" << endl;
+              while(true){
+                cin >> newSuit;
+                for(string suit: suits){
+                  if(suit == newSuit){
+                    break;
+                  }
+                }
+                cout << "That's not a suit in this deck. Try again." << endl;
+              }
+            }
+            c->play();
+            currentRank = newRank;
+            currentSuit = newSuit;
+            hand.erase(hand.begin() + i);
+            return c;
+          }
+          cout << "You can't play that card. Try again." << endl;
+          continue;
+        }
+        i++;
+      }
+      cout << "That's not a card you have. Try again." << endl;
+    }
+  }
   
 }
