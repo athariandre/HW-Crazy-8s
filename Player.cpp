@@ -7,6 +7,7 @@ using std::vector, std::string, std::size_t, std::cout, std::endl, std::cin;
 
 Player::Player(bool isAI) /* TODO: initialize */ {
   this->isAI = isAI;
+  this->hand = {};
 }
 
 void Player::addToHand(Card* c) {
@@ -27,7 +28,6 @@ std::string Player::getHandString() { //THIS IS THE ISSUE
       handString += (hand[i]->getRank() + " " + hand[i]->getSuit());
     }
   }
-  handString += (hand[hand.size()-1]->getRank() + " " + hand[hand.size()-1]->getSuit());
   return(handString);
 }
 

@@ -52,20 +52,42 @@ void setupGame(Game& g) {
 }
 
 int main() {
-  Game g;
-  if (!loadDeck(g)) {
-    return 1;
-  }
-  int numPlayers = getPlayerCount();
-  setupPlayers(g, numPlayers);
-  setupGame(g);
-  int winner = g.runGame();
-  if (winner != -1) {
-    std::cout << "Player " << winner << " wins!" << std::endl;
-  } else {
-    std::cout << "The game is a draw!" << std::endl;
-  }
-  std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
+  // Game g;
+  // if (!loadDeck(g)) {
+  //   return 1;
+  // }
+  // int numPlayers = getPlayerCount();
+  // setupPlayers(g, numPlayers);
+  // setupGame(g);
+  // int winner = g.runGame();
+  // if (winner != -1) {
+  //   std::cout << "Player " << winner << " wins!" << std::endl;
+  // } else {
+  //   std::cout << "The game is a draw!" << std::endl;
+  // }
+  // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
+
+  cout << "line 1" << endl;
+  std::vector<Card*> list;
+  cout << "line 2" << endl;
+    string suit;
+    cout << "line 3" << endl;
+    suit = "Hearts";
+    cout << "line 4" << endl;
+    Player p = new Player(false);
+    cout << "line 5" << endl;
+    for(int i = 1; i > 11; i++){
+        cout << "line 6" << endl;
+        Card *c = new Card(std::to_string(i), suit);
+        cout << "line 7" << endl;
+        p.addToHand(c);
+        cout << "line 8" << endl;
+    }
+    cout << "line 9" << endl;
+    cout << p.getHandSize() << endl;
+    cout << "line 10" << endl;
+    cout << " " << p.getHandString() << " " << endl;
+
 
   return 0;
 }
