@@ -20,24 +20,21 @@ size_t Player::getHandSize() {
 std::string Player::getHandString() {
   string handString = "";
   for(int i = 0; i < hand.size()-1; i++){
-    Card c = *hand.at(i);
-    handString += (c.getRank() + " " + c.getSuit() + ", ");
+    handString += (hand[i]->getRank() + " " + hand[i]->getSuit() + ", ");
   }
-  Card c = *hand.at(hand.size()-1);
-  handString += (c.getRank() + " " + c.getSuit());
+  handString += (hand[hand.size()-1]->getRank() + " " + hand[hand.size()-1]->getSuit());
   return(handString);
 }
 
 Card* Player::playCard(vector<string> const& suits, string& currentRank, string& currentSuit) {
   if(isAI){
     for(int i = 0; i < hand.size(); i++){
-      Card c = *hand.at(i);
-      if(c.canBePlayed(currentRank, currentSuit)){
-        c.play();
-        currentRank = c.getRank();
-        currentSuit = c.getSuit();
+      if(hand[i]->canBePlayed(currentRank, currentSuit)){
+        hand[i]->play();
+        currentRank = hand[i]->getRank();
+        currentSuit = hand[i]->getSuit();
         hand.erase(hand.begin() + i);
-        return &c;
+        return hand[i];
       }
       return nullptr;
     }
