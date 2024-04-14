@@ -7,6 +7,7 @@ using std::vector, std::string, std::size_t, std::cout, std::endl, std::cin;
 
 Player::Player(bool isAI) /* TODO: initialize */ {
   this->isAI = isAI;
+  this->hand = {};
 }
 
 void Player::addToHand(Card* c) {
