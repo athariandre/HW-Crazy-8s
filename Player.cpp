@@ -27,7 +27,6 @@ std::string Player::getHandString() {
 }
 
 Card* Player::playCard(vector<string> const& suits, string& currentRank, string& currentSuit) {
-  return nullptr;
   if(isAI){
     for(int i = 0; i < hand.size(); i++){
       if(hand[i]->canBePlayed(currentRank, currentSuit)){
@@ -81,6 +80,6 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
       }
       cout << "That's not a card you have. Try again." << endl;
     }
+    return nullptr;
   }
-  
 }
