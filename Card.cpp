@@ -5,23 +5,44 @@
 using std::string;
 
 Card::Card(string rank, string suit) /* TODO: initialize */ {
-  // TODO: implement constructor checks
-}
+
+    if(rank == "" || suit == ""){
+      throw std::invalid_argument("rank and/or suit is empty!");
+    }
+
+    for(char c: rank){
+      if(!std::isalnum(c)){
+        throw std::invalid_argument("rank is not alphanumeric!");
+      }
+    }
+    for(char c: suit){
+      if(!std::isalnum(c)){
+        throw std::invalid_argument("suit is not alphanumeric!");
+      }
+    }
+  }
+
 
 string Card::getRank() {
-  // TODO: implement getter
+  return rank;
 }
 
 string Card::getSuit() {
-  // TODO: implement getter
+  return suit;
 }
 
 int Card::getTimesPlayed() {
-  // TODO: implement getter
+  return timesPlayed;
 }
 
 bool Card::canBePlayed(string currentRank, string currentSuit) {
-  // TODO: return whether or not the card can legally be played
+  if(currentRank == "8"){
+    return true;
+  }
+  else if(currentRank == rank || currentSuit == suit){
+    return true;
+  }
+  return false;
 }
 
 void Card::play() {
