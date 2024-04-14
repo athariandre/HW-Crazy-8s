@@ -40,7 +40,7 @@ int Card::getTimesPlayed() {
 }
 
 bool Card::canBePlayed(string currentRank, string currentSuit) {
-  if(currentRank == "8"){
+  if(rank == "8"){
     return true;
   }
   else if(currentRank == rank || currentSuit == suit){
