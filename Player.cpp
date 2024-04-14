@@ -18,12 +18,14 @@ size_t Player::getHandSize() {
 }
 
 std::string Player::getHandString() {
+  string handString = "";
   for(int i = 0; i < hand.size()-1; i++){
     Card c = *hand.at(i);
-    cout << c.getRank() << " " << c.getSuit() << ", ";
+    handString += (c.getRank() + " " + c.getSuit() + ", ");
   }
   Card c = *hand.at(hand.size()-1);
-  cout << c.getRank() << " " << c.getSuit();
+  handString += (c.getRank() + " " + c.getSuit());
+  return(handString);
 }
 
 Card* Player::playCard(vector<string> const& suits, string& currentRank, string& currentSuit) {
@@ -34,8 +36,11 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
         c.play();
         currentRank = c.getRank();
         currentSuit = c.getSuit();
-        
+        hand.erase(hand.begin() + i);
+        return &c;
       }
+      return nullptr;
     }
   }
-}
+  return(nullptr);
+  }
