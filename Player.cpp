@@ -7,7 +7,6 @@ using std::vector, std::string, std::size_t, std::cout, std::endl, std::cin;
 
 Player::Player(bool isAI) /* TODO: initialize */ {
   this->isAI = isAI;
-  this->hand = {};
 }
 
 void Player::addToHand(Card* c) {
@@ -37,9 +36,8 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
         hand.erase(hand.begin() + i);
         return hand[i];
       }
-      return nullptr;
     }
-    return(nullptr);
+    return nullptr;
   }
   else{
     cout << "Your hand contains: " << getHandString() << endl;
@@ -47,7 +45,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
 
     string newRank, newSuit;
-    while(true){
+    while(false){
       cin >> newRank >> newSuit;
       if(newRank + newSuit == "drawcard"){
        return nullptr;
