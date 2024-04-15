@@ -52,35 +52,38 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
 
     string newRank, newSuit;
     while(true){
-
       cin >> newRank >> newSuit;
-      if(newRank == "draw" && newSuit == "card"){
+      if(newRank + newSuit == "drawcard"){
        return nullptr;
       }
 
       for(int i = 0; i < hand.size(); i++){
-        if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit && hand[i]->canBePlayed(currentRank, currentSuit)){
-          if(hand[i]->getRank() == "8"){
-            cout << "What suit would you like to declare?" << endl;
-            while(true){
-              cin >> newSuit;
-              for(string suit: suits){
-                if(suit == newSuit){
-                  break;
+        if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
+          if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
+            if(hand[i]->getRank() == "8"){
+              cout << "What suit would you like to declare?" << endl;
+              while(true){
+                cin >> newSuit;
+                for(string suit: suits){
+                  if(suit == newSuit){
+                    break;
+                  }
                 }
+                cout << "That's not a suit in this deck. Try again." << endl;
               }
-              cout << "That's not a suit in this deck. Try again." << endl;
             }
+            hand[i]->play();
+            currentRank = newRank;
+            currentSuit = newSuit;
+            Card* temp = hand[i];
+            hand.erase(hand.begin() + i);
+            return temp;
           }
-          hand[i]->play();
-          currentRank = newRank;
-          currentSuit = newSuit;
-          Card* temp = hand[i];
-          hand.erase(hand.begin() + i);
-          return temp;
+          else{ //if card exists but cannot be played
+            cout << "You can't play that card. Try again." << endl;
+            continue;
+          }
         }
-        cout << "You can't play that card. Try again." << endl;
-        i++;
       }
       cout << "That's not a card you have. Try again." << endl;
     }
