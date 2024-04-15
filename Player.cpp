@@ -38,8 +38,9 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
         hand[i]->play();
         currentRank = hand[i]->getRank();
         currentSuit = hand[i]->getSuit();
+        Card* temp = hand[i];
         hand.erase(hand.begin() + i);
-        return hand[i];
+        return temp;
       }
     }
     return nullptr;
@@ -56,11 +57,10 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
        return nullptr;
       }
 
-      int i = 0;
-      for(Card *c: hand){
-        if(c->getRank() == newRank && c->getSuit() == newSuit){
-          if(c->canBePlayed(currentRank, currentSuit)){  
-            if(c->getRank() == "8"){
+      for(int i = 0; i < hand.size(); i++){
+        if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){
+          if(hand[i]->canBePlayed(currentRank, currentSuit)){  
+            if(hand[i]->getRank() == "8"){
               cout << "What suit would you like to declare?" << endl;
               while(true){
                 cin >> newSuit;
@@ -72,11 +72,12 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
                 cout << "That's not a suit in this deck. Try again." << endl;
               }
             }
-            c->play();
+            hand[i]->play();
             currentRank = newRank;
             currentSuit = newSuit;
+            Card* temp = hand[i];
             hand.erase(hand.begin() + i);
-            return c;
+            return temp;
           }
           cout << "You can't play that card. Try again." << endl;
           continue;
