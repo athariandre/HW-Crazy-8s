@@ -53,6 +53,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     string newRank, newSuit;
     while(true){
       cin >> newRank >> newSuit;
+
       if(newRank + newSuit == "drawcard"){
        return nullptr;
       }
@@ -60,12 +61,12 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
       for(int i = 0; i < hand.size(); i++){
         if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
           if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
-            if(hand[i]->getRank() == "8"){
+            if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
               cout << "What suit would you like to declare?" << endl;
               while(true){
                 cin >> newSuit;
-                for(string suit: suits){
-                  if(suit == newSuit){
+                for(int i = 0; i < suits.size(); i++){
+                  if(suits[i] == newSuit){
                     break;
                   }
                 }
@@ -81,7 +82,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
           }
           else{ //if card exists but cannot be played
             cout << "You can't play that card. Try again." << endl;
-            continue;
+            break;
           }
         }
       }
