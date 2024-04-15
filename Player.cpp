@@ -18,7 +18,7 @@ size_t Player::getHandSize() {
   return(hand.size());
 }
 
-std::string Player::getHandString() { //THIS IS THE ISSUE
+std::string Player::getHandString() { 
   string handString = "";
   for(int i = 0; i < hand.size(); i++){
     if(i < hand.size()-1){
