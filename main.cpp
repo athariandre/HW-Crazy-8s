@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "Player.h"
 
-using std::string, std::cout, std::endl, std::cin;
+using std::string, std::cout, std::endl, std::cin, std::vector;
 
 bool loadDeck(Game& g) {
   string filename;
@@ -67,27 +67,18 @@ int main() {
   // }
   // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
 
-  cout << "line 1" << endl;
-  std::vector<Card*> list;
-  cout << "line 2" << endl;
-    string suit;
-    cout << "line 3" << endl;
-    suit = "Hearts";
-    cout << "line 4" << endl;
+
     Player p = new Player(false);
-    cout << "line 5" << endl;
-    for(int i = 1; i > 11; i++){
-        cout << "line 6" << endl;
-        Card *c = new Card(std::to_string(i), suit);
-        cout << "line 7" << endl;
-        p.addToHand(c);
-        cout << "line 8" << endl;
+    for(int i = 1; i < 11; i++){
+      Card *c = new Card(std::to_string(i), "Hearts");
+      p.addToHand(c);
     }
-    cout << "line 9" << endl;
-    cout << p.getHandSize() << endl;
-    cout << "line 10" << endl;
-    cout << " " << p.getHandString() << " " << endl;
+    Card *c = new Card("8", "Spades");
 
+    const vector<string> suits = {"Hearts", "Spades"};
+    string rank1 = "3";
+    string suit1 = "Hearts";
 
-  return 0;
+    p.playCard(suits, rank1, suit1);
+    return 0;
 }
