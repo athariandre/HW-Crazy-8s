@@ -68,12 +68,13 @@ int main() {
   // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
 
 
-    Player p = new Player(false);
+    Player p = Player(false);
     for(int i = 1; i < 11; i++){
       Card *c = new Card(std::to_string(i), "Hearts");
       p.addToHand(c);
     }
     Card *c = new Card("8", "Spades");
+    p.addToHand(c);
 
     const vector<string> suits = {"Hearts", "Spades"};
     string rank1 = "3";

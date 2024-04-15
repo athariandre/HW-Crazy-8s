@@ -7,6 +7,13 @@ using std::vector, std::string, std::size_t, std::cout, std::endl, std::cin;
 
 Player::Player(bool isAI) /* TODO: initialize */ {
   this->isAI = isAI;
+  cout << "done" << endl;
+  if(this->isAI){
+    cout << "is ai123" << endl;
+  }
+  else{
+    cout << "isn't ai123" << endl;
+  }
   this->hand = {};
 }
 
@@ -63,10 +70,12 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
           if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
             if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
               cout << "What suit would you like to declare?" << endl;
-              while(true){
+              bool suitUnchanged = true;
+              while(suitUnchanged){
                 cin >> newSuit;
                 for(int i = 0; i < suits.size(); i++){
                   if(suits[i] == newSuit){
+                    suitUnchanged = true;
                     break;
                   }
                 }
