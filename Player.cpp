@@ -50,7 +50,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
 
     string newRank, newSuit;
-    while(false){
+    while(true){
       cin >> newRank >> newSuit;
       if(newRank + newSuit == "drawcard"){
        return nullptr;
