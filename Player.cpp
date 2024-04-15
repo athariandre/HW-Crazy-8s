@@ -51,51 +51,47 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
 
     string newRank, newSuit;
-    while(true){
-      cin >> newRank >> newSuit;
+    // while(true){
+    //   cin >> newRank >> newSuit;
 
-      if(newRank + newSuit == "drawcard"){
-       return nullptr;
-      }
-      bool cardunplayable = false;
-      for(int i = 0; i < hand.size(); i++){ //checking for match within hand
-        if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
-          if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
-            if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
-              cout << "What suit would you like to declare?" << endl;
-              bool suitChanged = false;
-              while(!suitChanged){
-                cin >> newSuit;
-                for(int i = 0; i < suits.size(); i++){
-                  if(suits[i] == newSuit){
-                    suitChanged = true;
-                    break;
-                  }
-                }
-                if(suitChanged){
-                  break;
-                }
-                cout << "That's not a suit in this deck. Try again." << endl;
-              }
-            }
-            hand[i]->play();
-            currentRank = newRank;
-            currentSuit = newSuit;
-            Card* temp = hand[i];
-            hand.erase(hand.begin() + i);
-            return temp;
-          }
-          else{ //if card exists but cannot be played
-            cardunplayable = true;
-            cout << "You can't play that card. Try again." << endl;
-            break;
-          }
-        }
-      }
-      if(!cardunplayable){
-        cout << "That's not a card you have. Try again." << endl;
-      }
-    }
+    //   if(newRank + newSuit == "drawcard"){
+    //    return nullptr;
+    //   }
+    //   for(int i = 0; i < hand.size(); i++){ //checking for match within hand
+    //     if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
+    //       if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
+    //         if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
+    //           cout << "What suit would you like to declare?" << endl;
+    //           bool suitChanged = false;
+    //           while(!suitChanged){
+    //             cin >> newSuit;
+    //             for(int i = 0; i < suits.size(); i++){
+    //               if(suits[i] == newSuit){
+    //                 suitChanged = true;
+    //                 break;
+    //               }
+    //             }
+    //             if(suitChanged){
+    //               break;
+    //             }
+    //             cout << "That's not a suit in this deck. Try again." << endl;
+    //           }
+    //         }
+    //         hand[i]->play();
+    //         currentRank = newRank;
+    //         currentSuit = newSuit;
+    //         Card* temp = hand[i];
+    //         hand.erase(hand.begin() + i);
+    //         return temp;
+    //       }
+    //       else{ //if card exists but cannot be played
+    //         cout << "You can't play that card. Try again." << endl;
+    //         break;
+    //       }
+    //     }
+    //   }
+    //   cout << "That's not a card you have. Try again." << endl;
+    // }
   }
   
 }
