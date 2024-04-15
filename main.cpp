@@ -75,12 +75,15 @@ int main() {
     }
     Card *c = new Card("8", "Spades");
     p.addToHand(c);
+    c = new Card("2", "Spades");
+    p.addToHand(c);
+
 
     const vector<string> suits = {"Hearts", "Spades"};
     string rank1 = "3";
     string suit1 = "Hearts";
-
-    p.playCard(suits, rank1, suit1);
-    p.playCard(suits, rank1, suit1);
+    while(true){
+      p.playCard(suits, rank1, suit1);
+    }
     return 0;
 }
