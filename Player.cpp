@@ -7,13 +7,6 @@ using std::vector, std::string, std::size_t, std::cout, std::endl, std::cin;
 
 Player::Player(bool isAI) /* TODO: initialize */ {
   this->isAI = isAI;
-  cout << "done" << endl;
-  if(this->isAI){
-    cout << "is ai123" << endl;
-  }
-  else{
-    cout << "isn't ai123" << endl;
-  }
   this->hand = {};
 }
 
