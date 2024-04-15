@@ -54,7 +54,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     while(true){
 
       cin >> newRank >> newSuit;
-      if(newRank + newSuit == "drawcard"){
+      if(newRank == "draw" && newSuit == "card"){
        return nullptr;
       }
 
