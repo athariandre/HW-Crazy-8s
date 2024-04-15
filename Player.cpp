@@ -75,7 +75,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
                 cin >> newSuit;
                 for(int i = 0; i < suits.size(); i++){
                   if(suits[i] == newSuit){
-                    suitUnchanged = true;
+                    suitUnchanged = false;
                     break;
                   }
                 }
