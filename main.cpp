@@ -81,5 +81,6 @@ int main() {
     string suit1 = "Hearts";
 
     p.playCard(suits, rank1, suit1);
+    p.playCard(suits, rank1, suit1);
     return 0;
 }
