@@ -70,20 +70,20 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
           if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
             if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
               cout << "What suit would you like to declare?" << endl;
-              bool suitChanged = false;
-              while(!suitChanged){
-                cin >> newSuit;
-                for(int i = 0; i < suits.size(); i++){
-                  if(suits[i] == newSuit){
-                    suitChanged = true;
-                    break;
-                  }
-                }
-                if(!suitChanged){
-                  cout << "That's not a suit in this deck. Try again." << endl;
-                }
-              }
-            }
+            //   bool suitChanged = false;
+            //   while(!suitChanged){
+            //     cin >> newSuit;
+            //     for(int i = 0; i < suits.size(); i++){
+            //       if(suits[i] == newSuit){
+            //         suitChanged = true;
+            //         break;
+            //       }
+            //     }
+            //     if(!suitChanged){
+            //       cout << "That's not a suit in this deck. Try again." << endl;
+            //     }
+            //   }
+            // }
             hand[i]->play();
             currentRank = newRank;
             currentSuit = newSuit;
