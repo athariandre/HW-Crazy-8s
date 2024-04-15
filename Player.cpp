@@ -32,7 +32,6 @@ std::string Player::getHandString() {
 }
 
 Card* Player::playCard(vector<string> const& suits, string& currentRank, string& currentSuit) {
-  return nullptr;
   if(isAI){
     for(int i = 0; i < hand.size(); i++){
       if(hand[i]->canBePlayed(currentRank, currentSuit)){
@@ -47,6 +46,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     return nullptr;
   }
   else{
+    return nullptr;
     cout << "Your hand contains: " << getHandString() << endl;
     cout << "The next card played must be a " << currentRank << " or " << currentSuit << endl;
     cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
