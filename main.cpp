@@ -82,8 +82,5 @@ int main() {
     const vector<string> suits = {"Hearts", "Spades"};
     string rank1 = "3";
     string suit1 = "Hearts";
-    while(true){
-      p.playCard(suits, rank1, suit1);
-    }
     return 0;
 }
