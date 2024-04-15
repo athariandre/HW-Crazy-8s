@@ -72,9 +72,10 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
                     break;
                   }
                 }
-                if(!suitChanged){
-                  cout << "That's not a suit in this deck. Try again." << endl;
+                if(suitChanged){
+                  break;
                 }
+                cout << "That's not a suit in this deck. Try again." << endl;
               }
             }
             hand[i]->play();
