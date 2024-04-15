@@ -46,7 +46,6 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
     return nullptr;
   }
   else{
-    return nullptr;
     cout << "Your hand contains: " << getHandString() << endl;
     cout << "The next card played must be a " << currentRank << " or " << currentSuit << endl;
     cout << "What would you like to play? (enter \"draw card\" to draw a card)" << endl;
@@ -62,23 +61,23 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
       for(int i = 0; i < hand.size(); i++){
         if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
           if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
-            if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
-              cout << "What suit would you like to declare?" << endl;
-              bool suitChanged = false;
-              while(!suitChanged){
-                cin >> newSuit;
-                for(int i = 0; i < suits.size(); i++){
-                  if(suits[i] == newSuit){
-                    suitChanged = true;
-                    break;
-                  }
-                }
-                if(suitChanged){
-                  break;
-                }
-                cout << "That's not a suit in this deck. Try again." << endl;
-              }
-            }
+            // if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
+            //   cout << "What suit would you like to declare?" << endl;
+            //   bool suitChanged = false;
+            //   while(!suitChanged){
+            //     cin >> newSuit;
+            //     for(int i = 0; i < suits.size(); i++){
+            //       if(suits[i] == newSuit){
+            //         suitChanged = true;
+            //         break;
+            //       }
+            //     }
+            //     if(suitChanged){
+            //       break;
+            //     }
+            //     cout << "That's not a suit in this deck. Try again." << endl;
+            //   }
+            // }
             hand[i]->play();
             currentRank = newRank;
             currentSuit = newSuit;
