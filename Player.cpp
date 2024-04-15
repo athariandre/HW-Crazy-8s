@@ -57,27 +57,27 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
       if(newRank + newSuit == "drawcard"){
        return nullptr;
       }
-
+      bool cardunplayable;
       for(int i = 0; i < hand.size(); i++){
         if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
           if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
-            // if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
-            //   cout << "What suit would you like to declare?" << endl;
-            //   bool suitChanged = false;
-            //   while(!suitChanged){
-            //     cin >> newSuit;
-            //     for(int i = 0; i < suits.size(); i++){
-            //       if(suits[i] == newSuit){
-            //         suitChanged = true;
-            //         break;
-            //       }
-            //     }
-            //     if(suitChanged){
-            //       break;
-            //     }
-            //     cout << "That's not a suit in this deck. Try again." << endl;
-            //   }
-            // }
+            if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
+              cout << "What suit would you like to declare?" << endl;
+              bool suitChanged = false;
+              while(!suitChanged){
+                cin >> newSuit;
+                for(int i = 0; i < suits.size(); i++){
+                  if(suits[i] == newSuit){
+                    suitChanged = true;
+                    break;
+                  }
+                }
+                if(suitChanged){
+                  break;
+                }
+                cout << "That's not a suit in this deck. Try again." << endl;
+              }
+            }
             hand[i]->play();
             currentRank = newRank;
             currentSuit = newSuit;
@@ -86,12 +86,19 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
             return temp;
           }
           else{ //if card exists but cannot be played
+            cardunplayable = false;
             cout << "You can't play that card. Try again." << endl;
             break;
           }
         }
       }
-      cout << "That's not a card you have. Try again." << endl;
+      if(cardunplayable){
+        continue;
+      }
+      else{
+        cout << "That's not a card you have. Try again." << endl;
+      }
+      
     }
   }
   
