@@ -58,7 +58,7 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
        return nullptr;
       }
       bool cardunplayable = false;
-      for(int i = 0; i < hand.size(); i++){
+      for(int i = 0; i < hand.size(); i++){ //checking for match within hand
         if(hand[i]->getRank() == newRank && hand[i]->getSuit() == newSuit){ //if card exists in hand
           if(hand[i]->canBePlayed(currentRank, currentSuit)){   //if card exists and can be played
             if(hand[i]->getRank() == "8"){ //if card is eight, pick new suit first
@@ -92,13 +92,9 @@ Card* Player::playCard(vector<string> const& suits, string& currentRank, string&
           }
         }
       }
-      if(cardunplayable){
-        continue;
-      }
-      else{
+      if(!cardunplayable){
         cout << "That's not a card you have. Try again." << endl;
       }
-      
     }
   }
   
