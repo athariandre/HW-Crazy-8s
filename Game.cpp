@@ -110,15 +110,18 @@ void Game::drawCard(Player* p) {
 Card* Game::deal(int numCards) {
   // TODO: Flip the top card of the draw pile to be the initial discard
   // then deal numCards many cards to each player
+  return nullptr;
 }
 
 string Game::mostPlayedSuit() {
   // TODO: Return the suit which has been played the most times
   // if there is a tie, choose any of the tied suits
+  return "";
 }
 
 int Game::runGame() {
   // TODO: Run the game and return the number of the winning player
+  return 1;
 }
 
 // Destructor--Deallocates all the dynamic memory we allocated
