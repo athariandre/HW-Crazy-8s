@@ -52,26 +52,18 @@ void setupGame(Game& g) {
 }
 
 int main() {
-  // Game g;
-  // if (!loadDeck(g)) {
-  //   return 1;
-  // }
-  // int numPlayers = getPlayerCount();
-  // setupPlayers(g, numPlayers);
-  // setupGame(g);
-  // int winner = g.runGame();
-  // if (winner != -1) {
-  //   std::cout << "Player " << winner << " wins!" << std::endl;
-  // } else {
-  //   std::cout << "The game is a draw!" << std::endl;
-  // }
-  // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
-
   Game g;
-  try{
-    g.loadDeckFromFile("data/smallDeck.txt");
+  if (!loadDeck(g)) {
+    return 1;
   }
-  catch(std::exception &e){
-    cout << e.what();
+  int numPlayers = getPlayerCount();
+  setupPlayers(g, numPlayers);
+  setupGame(g);
+  int winner = g.runGame();
+  if (winner != -1) {
+    std::cout << "Player " << winner << " wins!" << std::endl;
+  } else {
+    std::cout << "The game is a draw!" << std::endl;
   }
+  std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
 }
