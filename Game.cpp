@@ -122,9 +122,25 @@ Card* Game::deal(int numCards) {
 }
 
 string Game::mostPlayedSuit() {
-  // TODO: Return the suit which has been played the most times
-  // if there is a tie, choose any of the tied suits
-  return "";
+  int suitCount[suits.size()];
+  for(int i = 0; i < deck.size(); i++){
+    for(int j = 0; j < suits.size(); i++){
+      if(deck[i]->getSuit() == suits[i]){
+        suitCount[j]+=deck[i]->getTimesPlayed();
+      }
+    }
+  }
+
+  int max = suitCount[0];
+  string maxSuit = suits[0];
+
+  for(int i = 0; i < suits.size(); i++){
+    if(suitCount[i] > max){
+      max = suitCount[i];
+      maxSuit = suits[i];
+    }
+  }
+  return maxSuit;
 }
 
 int Game::runGame() {
