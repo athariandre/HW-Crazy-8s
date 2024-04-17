@@ -157,20 +157,20 @@ int Game::runGame() {
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
     cout << "loaded card " << i << endl;
     if(playedCard != nullptr){ //if played did not draw
-      cout << "card " << i << " is not nullptr" << endl;
-      if(playedCard->getRank() != "8"){
-        cout << "pre add non 8" << endl;
-        cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
-        cout << "post add non 8" << endl;
-      }
-      else{
-        cout << "pre add 8" << endl;
-        cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
-        cout << "post add  8" << endl;
-      }
-      cout << "pre push" << endl;
-      discardPile.push_back(playedCard);
-      cout << "post push" << endl;
+      // cout << "card " << i << " is not nullptr" << endl;
+      // if(playedCard->getRank() != "8"){
+      //   cout << "pre add non 8" << endl;
+      //   cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
+      //   cout << "post add non 8" << endl;
+      // }
+      // else{
+      //   cout << "pre add 8" << endl;
+      //   cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+      //   cout << "post add  8" << endl;
+      // }
+      // cout << "pre push" << endl;
+      // discardPile.push_back(playedCard);
+      // cout << "post push" << endl;
     }
     // else{
     //   cout << "card " << i << " nullptr" << endl;
