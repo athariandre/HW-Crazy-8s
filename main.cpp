@@ -44,8 +44,8 @@ int getPlayerCount() {
 void setupPlayers(Game& g, int numPlayers) {
   string ai;
   for(int i = 0; i < numPlayers; i++){
+    cout << "Is player " << i << " an AI? (y/n)" << endl;
     while(ai != "y" && ai!="n"){
-      cout << "Is player " << i << " an AI? (y/n)" << endl;
       cin >> ai;
       if(ai == "y"){
         g.addPlayer(true);
