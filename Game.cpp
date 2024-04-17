@@ -153,7 +153,7 @@ int Game::runGame() {
 
 
 
-  for(int i = 0; i < players.size()+1; i++){
+  for(int i = 0; i < 3; i++){
     cout << "Player " << i << "'s turn!" << endl;
     cout << "abt to load card " << i << endl;
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
