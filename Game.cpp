@@ -160,7 +160,6 @@ int Game::runGame() {
     cout << "done loading card" << endl;
     if(playedCard != nullptr){ //if played did not draw
       cout << "card " << i << " is not nullptr" << endl;
-      return 1;
       if(playedCard->getRank() != "8"){
         cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
       }
@@ -171,9 +170,9 @@ int Game::runGame() {
     }
     else{
       cout << "card " << i << " nullptr" << endl;
-      return 1;
       try{
-        
+        cout << "trying to draw" << endl;
+        return 1;
         drawCard(players[i]);
         cout << "Player " << i << " draws a card." << endl;
       }
@@ -184,14 +183,16 @@ int Game::runGame() {
     }
 
     if(players[i]->getHandSize() == 0){
+      cout << "player won?" << endl;
       return i;
     }
     
     if(i == players.size()){
+      cout << "i reset" << endl;
       i = 0;
     }
   }
-
+  cout << "exit??" << endl;
   return -2;
 }
 
