@@ -111,9 +111,6 @@ void Game::drawCard(Player* p) {
 
 // deals numCards cards to each player
 Card* Game::deal(int numCards) {
-  // TODO: Flip the top card of the draw pile to be the initial discard
-  // then deal numCards many cards to each player
-
   Card * initialCard = drawPile.back();
   drawPile.pop_back();
   discardPile.push_back(initialCard);
