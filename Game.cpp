@@ -123,10 +123,11 @@ Card* Game::deal(int numCards) {
 
 string Game::mostPlayedSuit() {
   int suitCount[suits.size()];
-  for(int i = 0; i < deck.size(); i++){
+  for(Card* card: deck){ //looping thru every card
     for(int j = 0; j < suits.size(); j++){
-      if(deck[i]->getSuit() == suits[j]){
-        suitCount[j]+=deck[i]->getTimesPlayed();
+      suitCount[j] = 0;
+      if(card->getSuit() == suits[j]){
+        suitCount[j]+=card->getTimesPlayed();
       }
     }
   }
