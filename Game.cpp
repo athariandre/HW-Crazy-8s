@@ -124,9 +124,8 @@ Card* Game::deal(int numCards) {
 string Game::mostPlayedSuit() {
   int suitCount[suits.size()];
   for(Card* card: deck){ //looping thru every card
-    for(int j = 0; j < suits.size(); j++){
-      suitCount[j] = 0;
-      if(card->getSuit() == suits[j]){
+    for(int j = 0; j < suits.size(); j++){ //looping thru suit
+      if(card->getSuit() == suits[j]){ //only 
         suitCount[j]+=card->getTimesPlayed();
       }
     }
