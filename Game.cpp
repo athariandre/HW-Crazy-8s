@@ -105,7 +105,8 @@ void Game::drawCard(Player* p) {
       drawPile.push_back(discardPile[i]);
       discardPile.pop_back();
     }
-
+    p->addToHand(drawPile.back());
+    drawPile.pop_back();
   }
 }
 
