@@ -164,6 +164,7 @@ int Game::runGame() {
       discardPile.push_back(playedCard);
     }
     else{
+      cout << "card is nullptr" << endl;
       return -1;
       // try{
       //   drawCard(players[i]);
