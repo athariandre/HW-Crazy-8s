@@ -164,6 +164,7 @@ int Game::runGame() {
       discardPile.push_back(playedCard);
     }
     else{
+      return -1;
       // try{
       //   drawCard(players[i]);
       //   cout << "Player " << i << " draws a card." << endl;
