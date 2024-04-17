@@ -125,7 +125,7 @@ string Game::mostPlayedSuit() {
   int suitCount[suits.size()];
   for(int i = 0; i < deck.size(); i++){
     for(int j = 0; j < suits.size(); j++){
-      if(deck[i]->getSuit() == suits[i]){
+      if(deck[i]->getSuit() == suits[j]){
         suitCount[j]+=deck[i]->getTimesPlayed();
       }
     }
