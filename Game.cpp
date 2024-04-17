@@ -106,7 +106,7 @@ void Game::drawCard(Player* p) {
       drawPile.push_back(discardPile.back());
       discardPile.pop_back();
     }
-    
+
     p->addToHand(drawPile.back());
     drawPile.pop_back();
   }
@@ -151,6 +151,8 @@ int Game::runGame() {
   string currRank = deck[0]->getRank();
   string currSuit = deck[0]->getSuit();
 
+  return 1;
+
   for(int i = 0; i < players.size()+1; i++){
     cout << "Player " << i << "'s turn!" << endl;
 
@@ -166,16 +168,14 @@ int Game::runGame() {
       discardPile.push_back(playedCard);
     }
     else{
-      
-      return -1;
-      // try{
-      //   drawCard(players[i]);
-      //   cout << "Player " << i << " draws a card." << endl;
-      // }
-      // catch(std::exception &e){
-      //   cout << "Player " << i << " cannot draw a card." << endl;
-      //   return -1;
-      // }
+      try{
+        drawCard(players[i]);
+        cout << "Player " << i << " draws a card." << endl;
+      }
+      catch(std::exception &e){
+        cout << "Player " << i << " cannot draw a card." << endl;
+        return -1;
+      }
     }
 
     if(players[i]->getHandSize() == 0){
