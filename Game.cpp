@@ -192,11 +192,6 @@ int Game::runGame() {
       cout << "player won?" << endl;
       return i;
     }
-    
-    // if(i == players.size()){
-    //   cout << "i reset" << endl;
-    //   i = 0;
-    // }
     cout << "looped thru" << endl;
   }
   cout << "exit??" << endl;
