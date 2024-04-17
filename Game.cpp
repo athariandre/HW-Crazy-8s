@@ -175,7 +175,6 @@ int Game::runGame() {
       cout << "pre push" << endl;
       discardPile.push_back(playedCard);
       cout << "post push" << endl;
-      return 1;
     }
     else{
       cout << "card " << i << " nullptr" << endl;
@@ -198,10 +197,10 @@ int Game::runGame() {
       return i;
     }
     
-    if(i == players.size()){
-      cout << "i reset" << endl;
-      i = 0;
-    }
+    // if(i == players.size()){
+    //   cout << "i reset" << endl;
+    //   i = 0;
+    // }
   }
   cout << "exit??" << endl;
   return -2;
