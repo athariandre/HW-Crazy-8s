@@ -57,7 +57,7 @@ void Game::loadDeckFromFile(string filename) {
         }
       }
       if(!rankvalid){
-        throw std::invalid_argument("bad rank!");
+        throw std::runtime_error("bad rank!");
       }
 
       bool suitvalid = false;
@@ -68,7 +68,7 @@ void Game::loadDeckFromFile(string filename) {
         }
       }
       if(!suitvalid){
-        throw std::invalid_argument("bad suit!");
+        throw std::runtime_error("bad suit!");
       }
 
       try{
