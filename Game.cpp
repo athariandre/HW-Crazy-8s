@@ -158,7 +158,6 @@ int Game::runGame() {
     cout << "abt to load card " << i << endl;
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
     cout << "loaded card " << i << endl;
-    return 1;
     if(playedCard != nullptr){ //if played did not draw
       cout << "card " << i << " is not nullptr" << endl;
       return 1;
