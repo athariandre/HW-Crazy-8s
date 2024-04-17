@@ -122,7 +122,7 @@ Card* Game::deal(int numCards) {
 }
 
 string Game::mostPlayedSuit() {
-  int suitCount[suits.size()];
+  vector<int> suitCount(suits.size(), 0);
   for(Card* card: deck){ //looping thru every card
     for(int j = 0; j < suits.size(); j++){ //looping thru suit
       if(card->getSuit() == suits[j]){ //only 
