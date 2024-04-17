@@ -78,29 +78,24 @@ void setupGame(Game& g) {
     }
     break;
   }
+  Card* startingCard = g.deal(num);
+  cout << "The initial discard is " << startingCard->getRank() << " " << startingCard->getSuit() << endl;
 }
 
 int main() {
-  // Game g;
-  // if (!loadDeck(g)) {
-  //   return 1;
-  // }
-  // int numPlayers = getPlayerCount();
-  // setupPlayers(g, numPlayers);
-  // setupGame(g);
-  // int winner = g.runGame();
-  // if (winner != -1) {
-  //   std::cout << "Player " << winner << " wins!" << std::endl;
-  // } else {
-  //   std::cout << "The game is a draw!" << std::endl;
-  // }
-  // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
-
   Game g;
-  g.loadDeckFromFile("data/standardDeck.txt");
-  g.addPlayer(false);
-  g.addPlayer(false);
-  g.addPlayer(true);
-  g.deal(5);
-  g.runGame();
+  if (!loadDeck(g)) {
+    return 1;
+  }
+  int numPlayers = getPlayerCount();
+  setupPlayers(g, numPlayers);
+  setupGame(g);
+  int winner = g.runGame();
+  if (winner != -1) {
+    std::cout << "Player " << winner << " wins!" << std::endl;
+  } else {
+    std::cout << "The game is a draw!" << std::endl;
+  }
+  std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
+
 }
