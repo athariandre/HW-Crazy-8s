@@ -177,9 +177,9 @@ int Game::runGame() {
       return i;
     }
     
-    // if(i == players.size()){
-    //   i = 0;
-    // }
+    if(i == players.size()){
+      i = 0;
+    }
   }
 
   return -2;
