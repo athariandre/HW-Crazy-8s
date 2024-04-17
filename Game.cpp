@@ -113,7 +113,15 @@ void Game::drawCard(Player* p) {
 Card* Game::deal(int numCards) {
   // TODO: Flip the top card of the draw pile to be the initial discard
   // then deal numCards many cards to each player
-  return nullptr;
+
+  Card * initialCard = drawPile.back();
+  drawPile.pop_back();
+  discardPile.push_back(initialCard);
+
+  for(int i = 0; i < numCards*players.size(); i++){
+    drawCard(players.at(i%players.size()));
+  }
+  return initialCard;
 }
 
 string Game::mostPlayedSuit() {
