@@ -156,8 +156,8 @@ int Game::runGame() {
   for(int i = 0; i < players.size()+1; i++){
     cout << "Player " << i << "'s turn!" << endl;
     cout << "abt to load card " << i << endl;
-    return 1;
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
+    cout << "loaded card " << i << endl;
     return 1;
     if(playedCard != nullptr){ //if played did not draw
       cout << "card " << i << " is not nullptr" << endl;
