@@ -154,16 +154,16 @@ int Game::runGame() {
 
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
 
-    // if(playedCard != nullptr){ //if played did not draw
-    //   if(playedCard->getRank() != "8"){
-    //     cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
-    //   }
-    //   else{
-    //     cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
-    //   }
-    //   discardPile.push_back(playedCard);
-    // }
-    // else{
+    if(playedCard != nullptr){ //if played did not draw
+      if(playedCard->getRank() != "8"){
+        cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
+      }
+      else{
+        cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+      }
+      discardPile.push_back(playedCard);
+    }
+    else{
       try{
         drawCard(players[i]);
         cout << "Player " << i << " draws a card." << endl;
@@ -172,7 +172,7 @@ int Game::runGame() {
         cout << "Player " << i << " cannot draw a card." << endl;
         return -1;
       }
-    // }
+    }
 
     if(players[i]->getHandSize() == 0){
       return i;
