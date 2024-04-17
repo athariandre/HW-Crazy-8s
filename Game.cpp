@@ -162,12 +162,12 @@ int Game::runGame() {
       cout << "card " << i << " is not nullptr" << endl;
       if(playedCard->getRank() != "8"){
         cout << "pre add non 8" << endl;
-        // cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
+        cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
         cout << "post add non 8" << endl;
       }
       else{
         cout << "pre add 8" << endl;
-        // cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+        cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
         cout << "post add  8" << endl;
       }
       cout << "pre push" << endl;
