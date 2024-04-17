@@ -92,6 +92,7 @@ void Game::addPlayer(bool isAI){
 void Game::drawCard(Player* p) {
   // TODO: Move the top card of the draw pile to Player p's hand
   // If the draw pile is empty, flip the discard pile to create a new one
+  
   if(!drawPile.empty()){
     p->addToHand(drawPile.back());
     drawPile.pop_back();
@@ -121,6 +122,7 @@ Card* Game::deal(int numCards) {
   for(int i = 0; i < numCards*players.size(); i++){
     drawCard(players.at(i%players.size()));
   }
+
   return initialCard;
 }
 
@@ -150,34 +152,22 @@ int Game::runGame() {
 
   string currRank = deck[0]->getRank();
   string currSuit = deck[0]->getSuit();
-
-  for(int i = 0; i < (players.size()+1); i++){
+  int i = 0;
+  while(true){
     cout << "Player " << i << "'s turn!" << endl;
-    cout << "abt to load card " << i << endl;
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
-    cout << "loaded card " << i << endl;
     if(playedCard != nullptr){ //if played did not draw
-      cout << "card " << i << " is not nullptr" << endl;
       if(playedCard->getRank() != "8"){
-        cout << "pre add non 8" << endl;
         cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
-        cout << "post add non 8" << endl;
       }
       else{
-        cout << "pre add 8" << endl;
         cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
-        cout << "post add  8" << endl;
       }
-      cout << "pre push" << endl;
       discardPile.push_back(playedCard);
-      cout << "post push" << endl;
     }
     else{
-      cout << "card " << i << " nullptr" << endl;
-      return 1;
       try{
-        cout << "trying to draw" << endl;
-        // drawCard(players[i]);
+        drawCard(players[i]);
         cout << "Player " << i << " draws a card." << endl;
       }
       catch(std::exception &e){
@@ -187,10 +177,10 @@ int Game::runGame() {
     }
 
     if(players[i]->getHandSize() == 0){
-      cout << "player won?" << endl;
       return i;
     }
-    cout << "looped thru" << endl;
+    i++;
+    i%=players.size();
   }
   cout << "exit??" << endl;
   return -2;

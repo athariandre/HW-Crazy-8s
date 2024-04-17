@@ -33,6 +33,7 @@ std::string Player::getHandString() {
 
 Card* Player::playCard(vector<string> const& suits, string& currentRank, string& currentSuit) {
   if(isAI){
+    cout << "AI playing" << endl;
     for(int i = 0; i < hand.size(); i++){
       if(hand[i]->canBePlayed(currentRank, currentSuit)){
         hand[i]->play();
