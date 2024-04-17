@@ -148,38 +148,38 @@ int Game::runGame() {
   string currRank = deck[0]->getRank();
   string currSuit = deck[0]->getSuit();
 
-  for(int i = 0; i < players.size() + 1; i++){
-    cout << "Player " << i << "'s turn!" << endl;
+  // for(int i = 0; i < players.size() + 1; i++){
+  //   cout << "Player " << i << "'s turn!" << endl;
 
-    Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
+  //   Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
 
-    if(playedCard != nullptr){ //if played did not draw
-      if(playedCard->getRank() != "8"){
-        cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
-      }
-      else{
-        cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
-      }
-      discardPile.push_back(playedCard);
-    }
+  //   if(playedCard != nullptr){ //if played did not draw
+  //     if(playedCard->getRank() != "8"){
+  //       cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
+  //     }
+  //     else{
+  //       cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+  //     }
+  //     discardPile.push_back(playedCard);
+  //   }
 
-    try{
-      drawCard(players[i]);
-      cout << "Player " << i << " draws a card." << endl;
-    }
-    catch(...){
-      cout << "Player " << i << " cannot draw a card." << endl;
-      return -1;
-    }
+  //   try{
+  //     drawCard(players[i]);
+  //     cout << "Player " << i << " draws a card." << endl;
+  //   }
+  //   catch(...){
+  //     cout << "Player " << i << " cannot draw a card." << endl;
+  //     return -1;
+  //   }
 
-    if(players[i]->getHandSize() == 0){
-      return i;
-    }
+  //   if(players[i]->getHandSize() == 0){
+  //     return i;
+  //   }
     
-    // if(i == players.size()){
-    //   i = 0;
-    // }
-  }
+  //   // if(i == players.size()){
+  //   //   i = 0;
+  //   // }
+  // }
 
   return -2;
 }
