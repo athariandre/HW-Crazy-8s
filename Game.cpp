@@ -161,7 +161,7 @@ int Game::runGame() {
         cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
       }
       else{
-        cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+        cout << "Player " << i << " plays " << playedCard->getRank() << " and changes the suit to " << playedCard->getSuit() << "." << endl;
       }
       discardPile.push_back(playedCard);
     }
