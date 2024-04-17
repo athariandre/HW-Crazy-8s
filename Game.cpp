@@ -97,14 +97,16 @@ void Game::drawCard(Player* p) {
     drawPile.pop_back();
   }
   else{
+    cout << "Draw pile, empty, flipping the discard pile." << endl;
     if(discardPile.empty()){
       throw std::runtime_error("both piles empty!");
     }
-    cout << "Draw pile, empty, flipping the discard pile." << endl;
-    for(int i = discardPile.size()-1; i >= 0; i--){
-      drawPile.push_back(discardPile[i]);
+
+    while(!discardPile.empty()){
+      drawPile.push_back(discardPile.back());
       discardPile.pop_back();
     }
+    
     p->addToHand(drawPile.back());
     drawPile.pop_back();
   }
@@ -164,7 +166,7 @@ int Game::runGame() {
       discardPile.push_back(playedCard);
     }
     else{
-      cout << "card is nullptr" << endl;
+      
       return -1;
       // try{
       //   drawCard(players[i]);
