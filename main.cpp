@@ -42,13 +42,42 @@ int getPlayerCount() {
 }
 
 void setupPlayers(Game& g, int numPlayers) {
-  // TODO: Determine whether each player is a human or an AI
-  // and add them to the game
+  string ai;
+  for(int i = 0; i < numPlayers; i++){
+    while(ai != "y" && ai!="n"){
+      cout << "Is player " << i << " an AI? (y/n)" << endl;
+      if(ai == "y"){
+        g.addPlayer(true);
+      }
+      else if(ai == "n"){
+        g.addPlayer(false);
+      }
+      else{
+        cout << "Please enter y or n" << endl;
+      }
+    }
+    ai = "";
+  }
 }
 
 void setupGame(Game& g) {
-  // TODO: Determine how many cards to deal, deal the cards, and
-  // print the initial discard
+  int num;
+  string temp;
+  cout << "How many cards should each player start with?" << endl;
+  while(true){
+    cin >> num;
+    if(cin.fail()){
+      cin.clear();
+      cin >> temp;
+      cout << "Please enter a positive number." << endl;
+      continue;
+    }
+    else if(num <= 0){
+      cout << "Please enter a positive number." << endl;
+      continue;
+    }
+    break;
+  }
 }
 
 int main() {
