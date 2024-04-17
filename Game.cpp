@@ -160,7 +160,6 @@ int Game::runGame() {
     cout << "loaded card " << i << endl;
     if(playedCard != nullptr){ //if played did not draw
       cout << "card " << i << " is not nullptr" << endl;
-      return 1;
       if(playedCard->getRank() != "8"){
         cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
       }
