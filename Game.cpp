@@ -77,7 +77,7 @@ void Game::loadDeckFromFile(string filename) {
         drawPile.insert(drawPile.begin(), c);
       }
       catch(std::exception &e){
-        throw e;
+        throw std::runtime_error("card could not be created!");
       }
     }
   }
