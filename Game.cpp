@@ -163,14 +163,14 @@ int Game::runGame() {
     //   discardPile.push_back(playedCard);
     // }
     // else{
-    //   try{
-    //     drawCard(players[i]);
-    //     cout << "Player " << i << " draws a card." << endl;
-    //   }
-    //   catch(std::exception &e){
-    //     cout << "Player " << i << " cannot draw a card." << endl;
-    //     return -1;
-    //   }
+      try{
+        drawCard(players[i]);
+        cout << "Player " << i << " draws a card." << endl;
+      }
+      catch(std::exception &e){
+        cout << "Player " << i << " cannot draw a card." << endl;
+        return -1;
+      }
     // }
 
     if(players[i]->getHandSize() == 0){
