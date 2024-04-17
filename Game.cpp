@@ -148,7 +148,7 @@ int Game::runGame() {
   string currRank = deck[0]->getRank();
   string currSuit = deck[0]->getSuit();
 
-  for(int i = 0; i < players.size() + 1; i++){
+  for(int i = 0; i < players.size(); i++){
     cout << "Player " << i << "'s turn!" << endl;
 
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
