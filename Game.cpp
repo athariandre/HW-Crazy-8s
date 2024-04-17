@@ -153,7 +153,7 @@ int Game::runGame() {
 
 
 
-  for(int i = 0; i < 3; i++){
+  for(int i = 0; i < players.size()+1; i++){
     cout << "Player " << i << "'s turn!" << endl;
     cout << "abt to load card " << i << endl;
     Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
@@ -174,21 +174,21 @@ int Game::runGame() {
       discardPile.push_back(playedCard);
       cout << "post push" << endl;
     }
-    else{
-      cout << "card " << i << " nullptr" << endl;
-      return 1;
-      try{
-        cout << "trying to draw" << endl;
+    // else{
+    //   cout << "card " << i << " nullptr" << endl;
+    //   return 1;
+    //   try{
+    //     cout << "trying to draw" << endl;
 
-        return 1;
-        drawCard(players[i]);
-        cout << "Player " << i << " draws a card." << endl;
-      }
-      catch(std::exception &e){
-        cout << "Player " << i << " cannot draw a card." << endl;
-        return -1;
-      }
-    }
+    //     return 1;
+    //     drawCard(players[i]);
+    //     cout << "Player " << i << " draws a card." << endl;
+    //   }
+    //   catch(std::exception &e){
+    //     cout << "Player " << i << " cannot draw a card." << endl;
+    //     return -1;
+    //   }
+    // }
 
     if(players[i]->getHandSize() == 0){
       cout << "player won?" << endl;
