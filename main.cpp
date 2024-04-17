@@ -70,13 +70,13 @@ void setupGame(Game& g) {
       cin.clear();
       cin >> temp;
       cout << "Please enter a positive number." << endl;
-      continue;
     }
     else if(num <= 0){
       cout << "Please enter a positive number." << endl;
-      continue;
     }
-    break;
+    else{
+      break;
+    }
   }
   Card* startingCard = g.deal(num);
   cout << "The initial discard is " << startingCard->getRank() << " " << startingCard->getSuit() << endl;
