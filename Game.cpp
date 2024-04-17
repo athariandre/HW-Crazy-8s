@@ -98,7 +98,7 @@ void Game::drawCard(Player* p) {
   }
   else{
     if(discardPile.empty()){
-      throw std::invalid_argument("both piles empty!");
+      throw std::runtime_error("both piles empty!");
     }
     cout << "Draw pile, empty, flipping the discard pile." << endl;
     for(int i = discardPile.size()-1; i >= 0; i--){
