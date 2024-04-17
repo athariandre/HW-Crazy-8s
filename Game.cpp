@@ -50,7 +50,7 @@ void Game::loadDeckFromFile(string filename) {
         throw std::runtime_error("bad card input! (extra text in line)");
       }
       bool rankvalid = false;
-      for(int i = 0; i < ranks.size(); i++){
+      for(int i = 0; i < (int)ranks.size(); i++){
         if(ranks[i] == rank){
           rankvalid = true;
           break;
@@ -61,7 +61,7 @@ void Game::loadDeckFromFile(string filename) {
       }
 
       bool suitvalid = false;
-      for(int i = 0; i < suits.size(); i++){
+      for(int i = 0; i < (int)suits.size(); i++){
         if(suits[i] == suit){
           suitvalid = true;
           break;
@@ -119,7 +119,7 @@ Card* Game::deal(int numCards) {
   drawPile.pop_back();
   discardPile.push_back(initialCard);
 
-  for(int i = 0; i < numCards*players.size(); i++){
+  for(int i = 0; i < (int)numCards*players.size(); i++){
     drawCard(players.at(i%players.size()));
   }
 
@@ -129,7 +129,7 @@ Card* Game::deal(int numCards) {
 string Game::mostPlayedSuit() {
   vector<int> suitCount(suits.size(), 0);
   for(Card* card: deck){ //looping thru every card
-    for(int j = 0; j < suits.size(); j++){ //looping thru suit
+    for(int j = 0; j < (int)suits.size(); j++){ //looping thru suit
       if(card->getSuit() == suits[j]){ //only 
         suitCount[j]+=card->getTimesPlayed();
       }
@@ -139,7 +139,7 @@ string Game::mostPlayedSuit() {
   int max = suitCount[0];
   string maxSuit = suits[0];
 
-  for(int i = 0; i < suits.size(); i++){
+  for(int i = 0; i < (int)suits.size(); i++){
     if(suitCount[i] > max){
       max = suitCount[i];
       maxSuit = suits[i];

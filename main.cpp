@@ -70,10 +70,10 @@ void setupGame(Game& g) {
     if(cin.fail()){
       cin.clear();
       cin >> temp;
-      cout << "Please enter a positive number." << endl;
+      cout << "Please enter a positive number" << endl;
     }
     else if(num <= 0){
-      cout << "Please enter a positive number." << endl;
+      cout << "Please enter a positive number" << endl;
     }
     else{
       break;
