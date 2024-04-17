@@ -169,11 +169,14 @@ int Game::runGame() {
       }
       else{
         cout << "pre add 8" << endl;
-        cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
-        return 0;
+        cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
         cout << "post add  8" << endl;
       }
+      cout << "pre push" << endl;
+      return 1;
       discardPile.push_back(playedCard);
+      return 1;
+      cout << "post push" << endl;
     }
     else{
       cout << "card " << i << " nullptr" << endl;
