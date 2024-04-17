@@ -169,7 +169,6 @@ int Game::runGame() {
       }
       else{
         cout << "pre add 8" << endl;
-        return 0;
         cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
         return 0;
         cout << "post add  8" << endl;
