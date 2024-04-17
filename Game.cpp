@@ -200,7 +200,6 @@ int Game::runGame() {
     //   i = 0;
     // }
     cout << "looped thru" << endl;
-    return 0;
   }
   cout << "exit??" << endl;
   return -2;
