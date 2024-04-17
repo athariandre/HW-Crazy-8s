@@ -40,11 +40,11 @@ void Game::loadDeckFromFile(string filename) {
       istringstream inss(line);
       inss >> rank >> suit;
       if(!inss.good()){
-        throw std::invalid_argument("bad card input!");
+        throw std::invalid_argument("bad card input! 1");
       }
       inss >> line;
       if(!inss.eof()){
-        throw std::invalid_argument("bad card input!");
+        throw std::invalid_argument("bad card input! 2");
       }
       bool rankvalid = false;
       for(int i = 0; i < ranks.size(); i++){
