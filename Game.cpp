@@ -151,49 +151,47 @@ int Game::runGame() {
   string currRank = deck[0]->getRank();
   string currSuit = deck[0]->getSuit();
 
-  // for(int i = 0; i < players.size()+1; i++){
-  //   cout << "Player " << i << "'s turn!" << endl;
-  //   cout << "abt to load card " << i << endl;
-  //   Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
-  //   cout << "loaded card " << i << endl;
-  //   if(playedCard != nullptr){ //if played did not draw
-  //     // cout << "card " << i << " is not nullptr" << endl;
-  //     // if(playedCard->getRank() != "8"){
-  //     //   cout << "pre add non 8" << endl;
-  //     //   cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
-  //     //   cout << "post add non 8" << endl;
-  //     // }
-  //     // else{
-  //     //   cout << "pre add 8" << endl;
-  //     //   cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
-  //     //   cout << "post add  8" << endl;
-  //     // }
-  //     // cout << "pre push" << endl;
-  //     // discardPile.push_back(playedCard);
-  //     // cout << "post push" << endl;
-  //   }
-  //   // else{
-  //   //   cout << "card " << i << " nullptr" << endl;
-  //   //   return 1;
-  //   //   try{
-  //   //     cout << "trying to draw" << endl;
+  for(int i = 0; i < (players.size()+1); i++){
+    cout << "Player " << i << "'s turn!" << endl;
+    cout << "abt to load card " << i << endl;
+    Card* playedCard = players[i]->playCard(suits, currRank, currSuit);
+    cout << "loaded card " << i << endl;
+    if(playedCard != nullptr){ //if played did not draw
+      cout << "card " << i << " is not nullptr" << endl;
+      if(playedCard->getRank() != "8"){
+        cout << "pre add non 8" << endl;
+        cout << "Player " << i << " plays " << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
+        cout << "post add non 8" << endl;
+      }
+      else{
+        cout << "pre add 8" << endl;
+        cout << "Player " << i << " plays " << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+        cout << "post add  8" << endl;
+      }
+      cout << "pre push" << endl;
+      discardPile.push_back(playedCard);
+      cout << "post push" << endl;
+    }
+    else{
+      cout << "card " << i << " nullptr" << endl;
+      return 1;
+      try{
+        cout << "trying to draw" << endl;
+        // drawCard(players[i]);
+        cout << "Player " << i << " draws a card." << endl;
+      }
+      catch(std::exception &e){
+        cout << "Player " << i << " cannot draw a card." << endl;
+        return -1;
+      }
+    }
 
-  //   //     return 1;
-  //   //     drawCard(players[i]);
-  //   //     cout << "Player " << i << " draws a card." << endl;
-  //   //   }
-  //   //   catch(std::exception &e){
-  //   //     cout << "Player " << i << " cannot draw a card." << endl;
-  //   //     return -1;
-  //   //   }
-  //   // }
-
-  //   // if(players[i]->getHandSize() == 0){
-  //   //   cout << "player won?" << endl;
-  //   //   return i;
-  //   // }
-  //   cout << "looped thru" << endl;
-  // }
+    if(players[i]->getHandSize() == 0){
+      cout << "player won?" << endl;
+      return i;
+    }
+    cout << "looped thru" << endl;
+  }
   cout << "exit??" << endl;
   return -2;
 }
