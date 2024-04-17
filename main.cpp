@@ -67,20 +67,11 @@ int main() {
   // }
   // std::cout << "The most played suit was " << g.mostPlayedSuit() << std::endl;
 
-
-    Player p = Player(false);
-    for(int i = 1; i < 11; i++){
-      Card *c = new Card(std::to_string(i), "Hearts");
-      p.addToHand(c);
-    }
-    Card *c = new Card("8", "Spades");
-    p.addToHand(c);
-    c = new Card("2", "Spades");
-    p.addToHand(c);
-
-
-    const vector<string> suits = {"Hearts", "Spades"};
-    string rank1 = "3";
-    string suit1 = "Hearts";
-    return 0;
+  Game g;
+  try{
+    g.loadDeckFromFile("data/smallDeck.txt");
+  }
+  catch(std::exception &e){
+    cout << e.what();
+  }
 }
