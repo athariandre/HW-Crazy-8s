@@ -161,10 +161,18 @@ int Game::runGame() {
     if(playedCard != nullptr){ //if played did not draw
       cout << "card " << i << " is not nullptr" << endl;
       if(playedCard->getRank() != "8"){
+        cout << "pre add non 8" << endl;
+        return 0;
         cout << "Player " << i << " plays" << playedCard->getRank() << " " << playedCard->getSuit() << "." << endl;
+        return 0;
+        cout << "post add non 8" << endl;
       }
       else{
+        cout << "pre add 8" << endl;
+        return 0;
         cout << "Player " << i << " plays" << playedCard->getRank() << " and changes suit to " << playedCard->getSuit() << "." << endl;
+        return 0;
+        cout << "post add  8" << endl;
       }
       discardPile.push_back(playedCard);
     }
