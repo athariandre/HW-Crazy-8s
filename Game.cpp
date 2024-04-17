@@ -188,10 +188,10 @@ int Game::runGame() {
     //   }
     // }
 
-    if(players[i]->getHandSize() == 0){
-      cout << "player won?" << endl;
-      return i;
-    }
+    // if(players[i]->getHandSize() == 0){
+    //   cout << "player won?" << endl;
+    //   return i;
+    // }
     cout << "looped thru" << endl;
   }
   cout << "exit??" << endl;
