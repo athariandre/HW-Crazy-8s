@@ -173,10 +173,9 @@ int Game::runGame() {
         cout << "post add  8" << endl;
       }
       cout << "pre push" << endl;
-  
       discardPile.push_back(playedCard);
-      return 1;
       cout << "post push" << endl;
+      return 1;
     }
     else{
       cout << "card " << i << " nullptr" << endl;
